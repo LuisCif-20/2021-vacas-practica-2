@@ -1,6 +1,8 @@
 package src.tienda;
 
+
 import src.clientes.VectorClientes;
+import src.peliculas.VectorPelicula;
 
 public class Principal {
 
@@ -9,6 +11,7 @@ public class Principal {
     }
 
     private VectorClientes tablaClientes = new VectorClientes();
+    private VectorPelicula tablaPeliculas = new VectorPelicula();
 
     public Principal(){
 
@@ -20,6 +23,12 @@ public class Principal {
             System.out.println("2) Mostrar clientes");
             System.out.println("3) Ordenar Clientes Ascente");
             System.out.println("4) Ordenar Clientes Descendente");
+            System.out.println("5) Ingreso de Peliculas");
+            System.out.println("6) Mostrar Peliculas");
+            System.out.println("7) Ordenar Peliculas");
+            System.out.println("8) Modificar Peliculas");
+            System.out.println("9) Eliminar Pelicula");
+            System.out.println("10) Ver cantidad de Peliculas");
             System.out.println("-1) Salir");
             System.out.println("\n");
             menu = IngresoDatos.getEntero("Ingrese la opción ", true);
@@ -47,6 +56,31 @@ public class Principal {
                 System.out.println("\n\nOrdenado:");
                 tablaClientes.ordenarPorNombre(false);
                 tablaClientes.mostrarClientes();
+            }
+            if (menu == 5) {
+                tablaPeliculas.agregarPelicula();
+            }
+            if (menu == 6) {
+                tablaPeliculas.mostrarPeliculas();
+            }
+            if (menu == 7) {
+                System.out.println("Peliculas Desordenadas");
+                tablaPeliculas.mostrarPeliculas();
+                System.out.println("Peliculas Odenadas");
+                tablaPeliculas.ordenarPorNombre();
+                tablaPeliculas.ordenarId();
+                tablaPeliculas.mostrarPeliculas();                
+            }
+            if (menu == 8) {
+                tablaPeliculas.modificarInformacion();
+                tablaPeliculas.mostrarPeliculas();
+            }
+            if (menu == 9) {
+                tablaPeliculas.eliminarPelicula();
+                tablaPeliculas.mostrarPeliculas();
+            }
+            if (menu == 10) {
+                System.out.println("Hay " + (tablaPeliculas.getBanderasiguiente()-1) + " peliculas ingresadas");
             }
 
         }
